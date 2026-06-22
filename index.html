@@ -16,14 +16,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  
   <meta name="google-site-verification" content="Z2uDOVypClQCNfy9vRDeobEr58CNdyWtUUZrYVnEO5I" />
-<meta name="google-site-verification" content="Z2uDOVypClQCNfy9vRDeobEr58CNdyWtUUZrYVnEO5I" />
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3328565235324858"
      crossorigin="anonymous"></script>
-     
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EB3HSLWS4T"></script>
   <script>
@@ -60,7 +58,6 @@
       overflow-x: hidden;
     }
 
-    /* Background texture */
     body::before {
       content: '';
       position: fixed;
@@ -81,7 +78,6 @@
       padding: 0 24px;
     }
 
-    /* Header */
     header {
       padding: 48px 0 0;
       text-align: center;
@@ -120,7 +116,6 @@
       line-height: 1.6;
     }
 
-    /* Divider */
     .divider {
       display: flex;
       align-items: center;
@@ -136,16 +131,7 @@
     }
     .divider-icon { font-size: 0.9rem; color: var(--mid); }
 
-    /* Ad slot top */
     .ad-slot {
-      background: rgba(255,255,255,0.5);
-      border: 1px dashed var(--blush);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
       margin: 24px 0;
       min-height: 100px;
       display: flex;
@@ -153,7 +139,6 @@
       justify-content: center;
     }
 
-    /* Setup card */
     .card {
       background: rgba(255,255,255,0.7);
       backdrop-filter: blur(8px);
@@ -210,14 +195,9 @@
     }
 
     input[type="text"]:focus,
-    input[type="date"]:focus {
-      border-color: var(--terracotta);
-    }
+    input[type="date"]:focus { border-color: var(--terracotta); }
 
-    input[type="text"]::placeholder {
-      color: var(--muted);
-      opacity: 0.6;
-    }
+    input[type="text"]::placeholder { color: var(--muted); opacity: 0.6; }
 
     .hint {
       font-size: 0.78rem;
@@ -254,16 +234,9 @@
     }
     .btn-ghost:hover { background: var(--warm-white); color: var(--mid); }
 
-    /* Countdown display */
-    #countdown-display {
-      display: none;
-      animation: fadeUp 0.8s ease both;
-    }
+    #countdown-display { display: none; animation: fadeUp 0.8s ease both; }
 
-    .countdown-header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
+    .countdown-header { text-align: center; margin-bottom: 32px; }
 
     .countdown-label {
       font-size: 0.7rem;
@@ -334,10 +307,7 @@
       margin-top: 8px;
     }
 
-    /* Progress bar */
-    .progress-section {
-      margin: 24px 0;
-    }
+    .progress-section { margin: 24px 0; }
 
     .progress-meta {
       display: flex;
@@ -361,7 +331,6 @@
       transition: width 1s ease;
     }
 
-    /* Affirmation */
     .affirmation-card {
       background: linear-gradient(135deg, rgba(196,113,74,0.08), rgba(122,158,138,0.08));
       border: 1px solid rgba(196,113,74,0.15);
@@ -380,7 +349,6 @@
       line-height: 1.5;
     }
 
-    /* Finalized state */
     #finalized-display {
       display: none;
       text-align: center;
@@ -405,7 +373,6 @@
       line-height: 1.6;
     }
 
-    /* Footer info */
     .info-section {
       margin: 48px 0 24px;
       padding-top: 40px;
@@ -420,10 +387,26 @@
       margin-bottom: 12px;
     }
 
+    .info-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin: 28px 0 10px;
+    }
+
     .info-section p {
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .info-section ul {
+      margin-left: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.9;
       margin-bottom: 16px;
     }
 
@@ -461,9 +444,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .flip {
-      animation: flip 0.2s ease;
-    }
+    .flip { animation: flip 0.2s ease; }
     @keyframes flip {
       0% { transform: translateY(-4px); opacity: 0.5; }
       100% { transform: translateY(0); opacity: 1; }
@@ -480,10 +461,15 @@
     <p class="site-tagline">Count down the days until your divorce is officially final.<br>Private, free, and always rooting for your fresh start.</p>
   </header>
 
-  <!-- Ad slot -->
+  <!-- Ad slot top -->
   <div class="ad-slot">
-    <!-- Google AdSense ad unit here -->
-    Advertisement
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:100px"
+         data-ad-client="ca-pub-3328565235324858"
+         data-ad-slot="7550131613"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <!-- Setup form -->
@@ -563,8 +549,13 @@
 
   <!-- Ad slot mid -->
   <div class="ad-slot">
-    <!-- Google AdSense ad unit here -->
-    Advertisement
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:100px"
+         data-ad-client="ca-pub-3328565235324858"
+         data-ad-slot="7550131613"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <!-- SEO content -->
@@ -581,19 +572,45 @@
       <div class="state-item"><strong>Arizona</strong> — 60 days minimum</div>
       <div class="state-item"><strong>Colorado</strong> — 91 days minimum</div>
       <div class="state-item"><strong>Georgia</strong> — 30 days minimum</div>
+      <div class="state-item"><strong>Ohio</strong> — 30 days minimum</div>
+      <div class="state-item"><strong>North Carolina</strong> — 1 year separation</div>
+      <div class="state-item"><strong>Virginia</strong> — 6–12 months separation</div>
+      <div class="state-item"><strong>Missouri</strong> — 30 days minimum</div>
     </div>
 
     <p>These are minimums — contested divorces, court backlogs, or complex asset situations can extend timelines significantly. Always rely on dates from your attorney or court order, not general estimates.</p>
 
     <h2 style="margin-top:32px;">Why use a divorce countdown?</h2>
     <p>Going through a divorce is one of the most emotionally taxing experiences a person can face. Having a concrete date — and watching it approach — can provide something powerful: a tangible sense of forward motion. Finally Free gives you something to look at when the process feels endless.</p>
-    <p>Your data never leaves your device. We don't store, share, or sell any information you enter here.</p>
+    <p>Watching the days count down is a reminder that this chapter has an end date. It's finite. And on the other side of that date is a life that belongs entirely to you.</p>
+
+    <h3>Who uses Finally Free?</h3>
+    <ul>
+      <li>People waiting out mandatory state separation or waiting periods</li>
+      <li>Anyone with a finalization court date who wants to track the countdown</li>
+      <li>People who need a daily reminder that the end is in sight</li>
+      <li>Friends and family supporting someone through the process</li>
+      <li>Anyone who wants to mark the exact moment their fresh start begins</li>
+    </ul>
+
+    <h3>Is my information private?</h3>
+    <p>Completely. Your data never leaves your device. Finally Free stores your date and name in your browser's local storage only — nothing is sent to any server, shared with anyone, or used in any way. You can clear it at any time by clicking "Change date" and entering nothing.</p>
+
+    <h3>What happens when the countdown reaches zero?</h3>
+    <p>When your finalization date arrives, Finally Free displays a celebration message confirming that you are officially free. It's a small moment, but it's yours — a concrete marker of a new beginning.</p>
+
+    <p style="margin-top: 20px;">Nothing on this site constitutes legal advice. Always consult a licensed attorney for your specific situation.</p>
   </div>
 
   <!-- Ad slot bottom -->
   <div class="ad-slot">
-    <!-- Google AdSense ad unit here -->
-    Advertisement
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:100px"
+         data-ad-client="ca-pub-3328565235324858"
+         data-ad-slot="7550131613"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <footer>
@@ -644,11 +661,9 @@
   }
 
   function beginTick() {
-    // Set affirmation
     document.getElementById('affirmation-text').textContent =
       AFFIRMATIONS[Math.floor(Math.random() * AFFIRMATIONS.length)];
 
-    // Set name label
     const name = storedName;
     const nameEl = document.getElementById('cd-name');
     if (name) {
@@ -689,13 +704,8 @@
     setVal('cd-minutes', pad(minutes));
     setVal('cd-seconds', pad(seconds));
 
-    // Update tab title
     document.title = `${days}d ${pad(hours)}h ${pad(minutes)}m — Finally Free`;
 
-    // Progress bar (from filing = roughly target - 6 months, or just show days gone)
-    // We'll base progress on a user-implied "start" if we had it; else use today's pct of a year
-    // Simple: show % of target date reached from "today minus diff" vs total
-    // We store start when first set; use localStorage
     let start = localStorage.getItem('ff_start');
     if (!start) {
       start = Date.now().toString();
@@ -720,9 +730,7 @@
     }
   }
 
-  function pad(n) {
-    return String(n).padStart(2, '0');
-  }
+  function pad(n) { return String(n).padStart(2, '0'); }
 
   function resetCountdown() {
     clearInterval(ticker);
