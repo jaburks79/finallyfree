@@ -103,10 +103,7 @@
       letter-spacing: -0.01em;
     }
 
-    .site-title em {
-      font-style: italic;
-      color: var(--terracotta);
-    }
+    .site-title em { font-style: italic; color: var(--terracotta); }
 
     .site-tagline {
       margin-top: 16px;
@@ -123,21 +120,19 @@
       margin: 40px 0;
       opacity: 0.3;
     }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--mid);
-    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--mid); }
     .divider-icon { font-size: 0.9rem; color: var(--mid); }
 
+    /* Ad slots — hidden until countdown starts */
     .ad-slot {
       margin: 24px 0;
       min-height: 100px;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
     }
+
+    .ad-slot.visible { display: flex; }
 
     .card {
       background: rgba(255,255,255,0.7);
@@ -199,11 +194,7 @@
 
     input[type="text"]::placeholder { color: var(--muted); opacity: 0.6; }
 
-    .hint {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
+    .hint { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
 
     .btn {
       display: inline-block;
@@ -367,11 +358,7 @@
       margin-bottom: 12px;
     }
 
-    .finalized-sub {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
+    .finalized-sub { font-size: 1rem; color: var(--muted); line-height: 1.6; }
 
     .info-section {
       margin: 48px 0 24px;
@@ -461,18 +448,7 @@
     <p class="site-tagline">Count down the days until your divorce is officially final.<br>Private, free, and always rooting for your fresh start.</p>
   </header>
 
-  <!-- Ad slot top -->
-  <div class="ad-slot">
-    <ins class="adsbygoogle"
-         style="display:block;width:100%;min-height:100px"
-         data-ad-client="ca-pub-3328565235324858"
-         data-ad-slot="7550131613"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <!-- Setup form -->
+  <!-- Setup form — always visible, real publisher content above the fold -->
   <div class="card" id="setup-card">
     <h2 class="card-title">Set Your Date</h2>
     <p class="card-subtitle">Enter your court-ordered finalization date — the day the judge signs off and you're officially free. Everything stays in your browser only.</p>
@@ -489,6 +465,17 @@
     </div>
 
     <button class="btn" onclick="startCountdown()">Start My Countdown →</button>
+  </div>
+
+  <!-- Ad slot top — only shown after countdown starts -->
+  <div class="ad-slot" id="ad-top">
+    <ins class="adsbygoogle"
+         style="display:block;width:100%;min-height:100px"
+         data-ad-client="ca-pub-3328565235324858"
+         data-ad-slot="7550131613"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
   <!-- Countdown display -->
@@ -547,8 +534,8 @@
     </div>
   </div>
 
-  <!-- Ad slot mid -->
-  <div class="ad-slot">
+  <!-- Ad slot mid — only shown after countdown starts -->
+  <div class="ad-slot" id="ad-mid">
     <ins class="adsbygoogle"
          style="display:block;width:100%;min-height:100px"
          data-ad-client="ca-pub-3328565235324858"
@@ -558,7 +545,7 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <!-- SEO content -->
+  <!-- SEO content — always visible -->
   <div class="info-section">
     <h2>How long does divorce take?</h2>
     <p>Every state has its own mandatory waiting period before a divorce can be finalized. Once you have a court date or finalization date from your attorney, you can use Finally Free to count down to that exact moment.</p>
@@ -602,8 +589,8 @@
     <p style="margin-top: 20px;">Nothing on this site constitutes legal advice. Always consult a licensed attorney for your specific situation.</p>
   </div>
 
-  <!-- Ad slot bottom -->
-  <div class="ad-slot">
+  <!-- Ad slot bottom — only shown after countdown starts -->
+  <div class="ad-slot" id="ad-bottom">
     <ins class="adsbygoogle"
          style="display:block;width:100%;min-height:100px"
          data-ad-client="ca-pub-3328565235324858"
@@ -636,6 +623,15 @@
   let ticker = null;
   let storedTarget = null;
   let storedName = null;
+  let adsShown = false;
+
+  function showAds() {
+    if (adsShown) return;
+    adsShown = true;
+    document.getElementById('ad-top').classList.add('visible');
+    document.getElementById('ad-mid').classList.add('visible');
+    document.getElementById('ad-bottom').classList.add('visible');
+  }
 
   function loadSaved() {
     const d = localStorage.getItem('ff_date');
@@ -644,6 +640,7 @@
       storedTarget = d;
       storedName = n || '';
       document.getElementById('setup-card').style.display = 'none';
+      showAds();
       beginTick();
     }
   }
@@ -657,6 +654,7 @@
     storedTarget = dateVal;
     storedName = nameVal;
     document.getElementById('setup-card').style.display = 'none';
+    showAds();
     beginTick();
   }
 
@@ -739,8 +737,12 @@
     localStorage.removeItem('ff_start');
     storedTarget = null;
     storedName = null;
+    adsShown = false;
     document.getElementById('countdown-display').style.display = 'none';
     document.getElementById('finalized-display').style.display = 'none';
+    document.getElementById('ad-top').classList.remove('visible');
+    document.getElementById('ad-mid').classList.remove('visible');
+    document.getElementById('ad-bottom').classList.remove('visible');
     document.getElementById('setup-card').style.display = 'block';
     document.getElementById('final-date').value = '';
     document.getElementById('your-name').value = '';
